@@ -6,12 +6,17 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "dev": "bun run --hot src/index.ts"
+    "dev": "bun run --hot src/index.ts",
+    "build": "bun build src/index.ts --outdir dist --target bun",
+    "postinstall": "bun run --cwd ../database db:generate"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.68",
+    "@ai-sdk/openai": "^3.0.52",
     "@hono/zod-validator": "^0.7.6",
     "@nightcode/database": "workspace:*",
     "@nightcode/shared": "workspace:*",
+    "ai": "^6.0.154",
     "dotenv": "^17.4.1",
     "hono": "^4.12.12",
     "zod": "^4.3.6"
